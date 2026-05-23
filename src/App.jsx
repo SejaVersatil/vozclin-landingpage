@@ -9,6 +9,7 @@ import {
   HiMicrophone,
   HiX,
 } from 'react-icons/hi';
+import ClinicalVoicePulse from './components/ClinicalVoicePulse.jsx';
 
 const navItems = [
   { label: 'Produto', href: '#produto' },
@@ -17,14 +18,9 @@ const navItems = [
 ];
 
 const proofPoints = [
-  'Apoio a documentação, não decisão clínica',
-  'Revisão humana antes de copiar ou exportar',
-  'Sessões temporárias para demos e pilotos',
-];
-
-const soundColumns = [
-  4, 6, 8, 11, 15, 18, 23, 19, 14, 10, 13, 18, 24, 30, 26, 20, 15, 12, 16, 22, 28, 24, 18, 13, 9, 12, 17, 21,
-  18, 13, 9, 7, 5,
+  'Captação por voz para ditados e conversas',
+  'Ficha revisável antes de copiar ou exportar',
+  'Apoio à rotina clínica, não decisão autônoma',
 ];
 
 const workflow = [
@@ -32,7 +28,7 @@ const workflow = [
     icon: HiMicrophone,
     label: '01',
     title: 'Capture a conversa',
-    copy: 'Grave no navegador com contexto opcional da consulta, sem transformar a landing page em prontuário.',
+    copy: 'Grave ou dite no navegador com contexto opcional da consulta, mantendo o fluxo como apoio documental.',
   },
   {
     icon: HiDocumentText,
@@ -131,35 +127,6 @@ function Navbar() {
   );
 }
 
-function SoundHologram() {
-  return (
-    <div className="sound-hologram" aria-hidden="true">
-      <span className="hologram-ring" />
-      <span className="hologram-ring secondary" />
-      <div className="sound-wave">
-        {soundColumns.map((dots, columnIndex) => (
-          <span
-            className="sound-column"
-            key={`${dots}-${columnIndex}`}
-            style={{ '--dots': dots, '--index': columnIndex, '--delay': `${columnIndex * -0.052}s` }}
-          >
-            {Array.from({ length: dots }, (_, dotIndex) => (
-              <i
-                key={dotIndex}
-                style={{
-                  '--dot': dotIndex,
-                  '--tone': (columnIndex + dotIndex) % 3,
-                }}
-              />
-            ))}
-          </span>
-        ))}
-      </div>
-      <span className="hologram-scan" />
-    </div>
-  );
-}
-
 function App() {
   return (
     <div className="page-shell" id="top">
@@ -168,25 +135,21 @@ function App() {
       <main>
         <section className="hero-section" id="produto">
           <div className="hero-copy">
-            <div className="hero-title-stage">
-              <SoundHologram />
-              <h1>
-                Documentação clínica
-                <span className="voice-gradient">pelo poder da voz</span>
-              </h1>
-            </div>
+            <span className="eyebrow">Voz + IA clínica</span>
+            <h1>
+              Documentação clínica <span className="voice-gradient">por voz,</span> com IA e revisão humana.
+            </h1>
             <p className="hero-lede">
-              Transforme áudio em documentação clínica estruturada com apoio de inteligência artificial,
-              evidências por campo e revisão humana. Reduza o tempo gasto com papelada e dedique-se ao que
-              realmente importa: seus pacientes.
+              O VozClin transforma ditados e conversas clínicas em fichas estruturadas, revisáveis e prontas
+              para uso pelo profissional.
             </p>
             <div className="hero-actions">
               <a className="primary-button" href="https://voxialaw.com/login">
-                Acessar plataforma
+                Testar VozClin
                 <HiArrowRight aria-hidden="true" />
               </a>
-              <a className="secondary-button" href="#planos">
-                Ver planos
+              <a className="secondary-button" href="#fluxo">
+                Ver como funciona
               </a>
             </div>
             <div className="proof-strip">
@@ -197,6 +160,9 @@ function App() {
                 </span>
               ))}
             </div>
+          </div>
+          <div className="hero-visual" aria-hidden="true">
+            <ClinicalVoicePulse />
           </div>
         </section>
 
