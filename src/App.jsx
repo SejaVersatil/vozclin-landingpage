@@ -196,11 +196,15 @@ function App() {
       <main>
         <section className="hero-section" id="produto">
           <div className="hero-copy">
-            <span className="eyebrow">Documentação clínica por voz</span>
-            <h1>VozClin</h1>
+            <span className="eyebrow">VozClin</span>
+            <h1>
+              Documentação clínica
+              <span className="voice-gradient">pelo poder da voz</span>
+            </h1>
             <p className="hero-lede">
-              Um assistente para transformar consultas faladas em documentação estruturada, com revisão humana,
-              evidências por campo e uso conservador para demos e pilotos.
+              Transforme áudio em documentação clínica estruturada com apoio de inteligência artificial,
+              evidências por campo e revisão humana. Reduza o tempo gasto com papelada e dedique-se ao que
+              realmente importa: seus pacientes.
             </p>
             <div className="hero-actions">
               <a className="primary-button" href="https://voxialaw.com/login">
@@ -273,9 +277,13 @@ function App() {
         </section>
 
         <section className="pricing-section" id="planos">
-          <div className="section-heading">
+          <div className="section-heading pricing-heading">
             <span className="eyebrow">VozClin Essencial</span>
-            <h2>Planos simples por chave de acesso.</h2>
+            <h2>Escolha o plano ideal para sua rotina clínica.</h2>
+            <p>
+              Sem taxas ocultas. Cancele quando quiser. Todos os planos mantêm revisão humana, sessões
+              temporárias e cuidado LGPD desde a demonstração.
+            </p>
           </div>
           <div className="pricing-grid">
             {plans.map((plan) => (
