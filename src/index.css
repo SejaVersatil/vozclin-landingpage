@@ -469,7 +469,7 @@ h3 {
 .workflow-card,
 .price-card,
 .guardrail-list article,
-.faq-list details {
+.final-cta {
   border: 1px solid rgba(18, 54, 56, 0.13);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.74);
@@ -483,8 +483,6 @@ h3 {
 .workflow-card p,
 .guardrail-list p,
 .price-card p,
-.faq-list p,
-.positioning-band p,
 .site-footer p {
   color: var(--ink-muted);
   line-height: 1.55;
@@ -512,50 +510,24 @@ h3 {
   gap: 6px;
 }
 
-.positioning-band,
 .workflow-section,
 .guardrails-section,
 .pricing-section,
-.faq-section,
 .final-cta,
 .site-footer {
   width: min(1180px, calc(100% - 32px));
   margin-inline: auto;
 }
 
-.positioning-band {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 70px);
-  align-items: center;
-  padding: clamp(28px, 5vw, 54px);
-  border-top: 1px solid rgba(18, 54, 56, 0.16);
-  border-bottom: 1px solid rgba(18, 54, 56, 0.16);
-}
-
-.positioning-band span,
-.positioning-band strong {
-  display: block;
-}
-
-.positioning-band span {
-  color: var(--ink-muted);
-  font-size: 17px;
-}
-
-.positioning-band strong {
-  max-width: 560px;
-  color: var(--ink-strong);
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1;
-}
-
 .workflow-section,
 .guardrails-section,
-.pricing-section,
-.faq-section {
+.pricing-section {
   padding-block: clamp(68px, 8vw, 112px);
+}
+
+.workflow-section {
+  padding-top: clamp(46px, 6vw, 78px);
+  border-top: 1px solid rgba(18, 54, 56, 0.12);
 }
 
 .section-heading {
@@ -712,32 +684,6 @@ h3 {
   color: var(--ink-muted);
 }
 
-.faq-list {
-  display: grid;
-  gap: 10px;
-}
-
-.faq-list details {
-  padding: 0 22px;
-}
-
-.faq-list summary {
-  cursor: pointer;
-  padding: 22px 0;
-  color: var(--ink-strong);
-  font-size: 22px;
-  font-weight: 850;
-  list-style: none;
-}
-
-.faq-list summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-list p {
-  margin-bottom: 22px;
-}
-
 .final-cta {
   display: flex;
   justify-content: space-between;
@@ -784,7 +730,6 @@ h3 {
 
 @media (max-width: 1120px) {
   .hero-section,
-  .positioning-band,
   .guardrails-section {
     grid-template-columns: 1fr;
   }
@@ -839,11 +784,9 @@ h3 {
   }
 
   .hero-section,
-  .positioning-band,
   .workflow-section,
   .guardrails-section,
   .pricing-section,
-  .faq-section,
   .final-cta,
   .site-footer {
     width: min(100% - 24px, 1180px);
@@ -898,13 +841,6 @@ h3 {
     min-height: auto;
   }
 
-  .positioning-band {
-    padding-inline: 0;
-  }
-
-  .faq-list summary {
-    font-size: 19px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

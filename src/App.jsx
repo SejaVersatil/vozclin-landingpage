@@ -15,7 +15,6 @@ const navItems = [
   { label: 'Produto', href: '#produto' },
   { label: 'Fluxo', href: '#fluxo' },
   { label: 'Planos', href: '#planos' },
-  { label: 'Perguntas', href: '#perguntas' },
 ];
 
 const proofPoints = [
@@ -81,21 +80,6 @@ const plans = [
     detail: '5 chaves mensais',
     highlight: false,
     features: ['Mais acessos', 'Padronização de documentação', 'Fluxo de revisão', 'Base para piloto ampliado'],
-  },
-];
-
-const faqs = [
-  {
-    q: 'O VozClin substitui o profissional de saúde?',
-    a: 'Não. Ele apoia documentação clínica e mantém revisão humana obrigatória antes de copiar ou exportar qualquer conteúdo.',
-  },
-  {
-    q: 'Posso usar com pacientes reais hoje?',
-    a: 'Para uso real, antes é preciso ambiente seguro, HTTPS, governança LGPD, consentimento, revisão jurídica e validação clínica supervisionada.',
-  },
-  {
-    q: 'A landing page promete IA médica autônoma?',
-    a: 'Não. A proposta pública é clara: captar voz, estruturar documentos e reduzir burocracia com revisão profissional.',
   },
 ];
 
@@ -228,17 +212,6 @@ function App() {
           <ProductConsole />
         </section>
 
-        <section className="positioning-band">
-          <div>
-            <span>Para clínicas que querem documentação mais leve</span>
-            <strong>sem vender automação clínica irresponsável.</strong>
-          </div>
-          <p>
-            A página agora comunica o produto como apoio operacional: captação de voz, estruturação de ficha,
-            revisão profissional e exportação apenas do que foi validado.
-          </p>
-        </section>
-
         <section className="workflow-section" id="fluxo">
           <div className="section-heading">
             <span className="eyebrow">Fluxo seguro</span>
@@ -305,21 +278,6 @@ function App() {
                   ))}
                 </ul>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="faq-section" id="perguntas">
-          <div className="section-heading narrow">
-            <span className="eyebrow">Perguntas diretas</span>
-            <h2>Sem fumaça, sem promessa excessiva.</h2>
-          </div>
-          <div className="faq-list">
-            {faqs.map((item) => (
-              <details key={item.q}>
-                <summary>{item.q}</summary>
-                <p>{item.a}</p>
-              </details>
             ))}
           </div>
         </section>
