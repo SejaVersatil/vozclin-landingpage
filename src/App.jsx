@@ -327,7 +327,9 @@ function App() {
         <section className="final-cta">
           <div>
             <span className="eyebrow">Próximo passo</span>
-            <h2>Mostre o VozClin como produto sério desde o primeiro clique.</h2>
+            <h2>
+              Pronto para <span className="inline-gradient">revolucionar</span> sua documentação clínica?
+            </h2>
           </div>
           <a className="primary-button light" href="https://voxialaw.com/login">
             Abrir plataforma

@@ -258,6 +258,14 @@ h1 .voice-gradient {
   -webkit-background-clip: text;
 }
 
+.inline-gradient {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(95deg, #82a3ff 0%, #2cc4d8 58%, #e0ad61 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 h2 {
   max-width: 760px;
   margin-bottom: 0;
