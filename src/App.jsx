@@ -22,7 +22,10 @@ const proofPoints = [
   'Sessões temporárias para demos e pilotos',
 ];
 
-const soundColumns = [3, 5, 7, 10, 13, 16, 19, 15, 11, 8, 12, 17, 21, 18, 14, 9, 12, 16, 20, 17, 13, 8, 10, 14, 18, 15, 11, 7, 5, 3];
+const soundColumns = [
+  4, 6, 8, 11, 15, 18, 23, 19, 14, 10, 13, 18, 24, 30, 26, 20, 15, 12, 16, 22, 28, 24, 18, 13, 9, 12, 17, 21,
+  18, 13, 9, 7, 5,
+];
 
 const workflow = [
   {
@@ -138,7 +141,7 @@ function SoundHologram() {
           <span
             className="sound-column"
             key={`${dots}-${columnIndex}`}
-            style={{ '--dots': dots, '--delay': `${columnIndex * -0.055}s` }}
+            style={{ '--dots': dots, '--index': columnIndex, '--delay': `${columnIndex * -0.052}s` }}
           >
             {Array.from({ length: dots }, (_, dotIndex) => (
               <i
@@ -152,6 +155,7 @@ function SoundHologram() {
           </span>
         ))}
       </div>
+      <span className="hologram-scan" />
     </div>
   );
 }
@@ -164,11 +168,13 @@ function App() {
       <main>
         <section className="hero-section" id="produto">
           <div className="hero-copy">
-            <SoundHologram />
-            <h1>
-              Documentação clínica
-              <span className="voice-gradient">pelo poder da voz</span>
-            </h1>
+            <div className="hero-title-stage">
+              <SoundHologram />
+              <h1>
+                Documentação clínica
+                <span className="voice-gradient">pelo poder da voz</span>
+              </h1>
+            </div>
             <p className="hero-lede">
               Transforme áudio em documentação clínica estruturada com apoio de inteligência artificial,
               evidências por campo e revisão humana. Reduza o tempo gasto com papelada e dedique-se ao que
