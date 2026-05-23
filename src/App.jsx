@@ -7,7 +7,6 @@ import {
   HiDocumentText,
   HiMenu,
   HiMicrophone,
-  HiShieldCheck,
   HiX,
 } from 'react-icons/hi';
 
@@ -22,6 +21,8 @@ const proofPoints = [
   'Revisão humana antes de copiar ou exportar',
   'Sessões temporárias para demos e pilotos',
 ];
+
+const soundColumns = [3, 5, 7, 10, 13, 16, 19, 15, 11, 8, 12, 17, 21, 18, 14, 9, 12, 16, 20, 17, 13, 8, 10, 14, 18, 15, 11, 7, 5, 3];
 
 const workflow = [
   {
@@ -127,46 +128,29 @@ function Navbar() {
   );
 }
 
-function ProductConsole() {
+function SoundHologram() {
   return (
-    <div className="product-console" aria-label="Prévia da interface VozClin">
-      <div className="console-topbar">
-        <span />
-        <span />
-        <span />
-        <strong>sessão temporária</strong>
-      </div>
-      <div className="capture-panel">
-        <div className="capture-status">
-          <span className="mic-button">
-            <HiMicrophone aria-hidden="true" />
+    <div className="sound-hologram" aria-hidden="true">
+      <span className="hologram-ring" />
+      <span className="hologram-ring secondary" />
+      <div className="sound-wave">
+        {soundColumns.map((dots, columnIndex) => (
+          <span
+            className="sound-column"
+            key={`${dots}-${columnIndex}`}
+            style={{ '--dots': dots, '--delay': `${columnIndex * -0.055}s` }}
+          >
+            {Array.from({ length: dots }, (_, dotIndex) => (
+              <i
+                key={dotIndex}
+                style={{
+                  '--dot': dotIndex,
+                  '--tone': (columnIndex + dotIndex) % 3,
+                }}
+              />
+            ))}
           </span>
-          <div>
-            <strong>Consulta em captação</strong>
-            <small>áudio local protegido na aba</small>
-          </div>
-        </div>
-        <div className="waveform" aria-hidden="true">
-          {Array.from({ length: 18 }, (_, i) => (
-            <span key={i} style={{ '--bar': `${22 + ((i * 13) % 58)}%` }} />
-          ))}
-        </div>
-      </div>
-      <div className="review-grid">
-        <section>
-          <span className="section-kicker">Ficha estruturada</span>
-          <h3>Evolução clínica</h3>
-          <p>Queixa principal, história, conduta e pendências aparecem separados para revisão.</p>
-        </section>
-        <section>
-          <span className="section-kicker">Evidências</span>
-          <h3>3 campos confirmados</h3>
-          <p>Cada trecho precisa ser validado antes de entrar no texto final.</p>
-        </section>
-      </div>
-      <div className="console-footer">
-        <span><HiCheckCircle aria-hidden="true" /> Revisão obrigatória</span>
-        <span><HiShieldCheck aria-hidden="true" /> Sem decisão clínica</span>
+        ))}
       </div>
     </div>
   );
@@ -180,7 +164,7 @@ function App() {
       <main>
         <section className="hero-section" id="produto">
           <div className="hero-copy">
-            <span className="eyebrow">VozClin</span>
+            <SoundHologram />
             <h1>
               Documentação clínica
               <span className="voice-gradient">pelo poder da voz</span>
@@ -208,8 +192,6 @@ function App() {
               ))}
             </div>
           </div>
-
-          <ProductConsole />
         </section>
 
         <section className="workflow-section" id="fluxo">

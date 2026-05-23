@@ -95,7 +95,6 @@ summary {
 .primary-button,
 .secondary-button,
 .proof-strip span,
-.console-footer span,
 .price-card li {
   display: inline-flex;
   align-items: center;
@@ -186,31 +185,34 @@ summary {
 .hero-section {
   position: relative;
   width: min(1180px, calc(100% - 32px));
-  min-height: calc(100vh - 112px);
+  min-height: min(760px, calc(100vh - 126px));
   margin: 0 auto;
-  padding: clamp(60px, 8vw, 104px) 0 clamp(44px, 6vw, 76px);
-  display: grid;
-  grid-template-columns: minmax(0, 560px) minmax(500px, 1fr);
-  gap: clamp(48px, 5vw, 78px);
+  padding: clamp(28px, 5vw, 54px) 0 clamp(46px, 7vw, 70px);
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-section::before {
   content: "";
   position: absolute;
-  left: 34%;
-  top: 8%;
-  width: 1px;
-  height: 78%;
-  background: linear-gradient(180deg, transparent, rgba(177, 132, 69, 0.55), transparent);
-  transform: rotate(18deg);
+  left: 50%;
+  top: 16%;
+  width: min(760px, 74vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(177, 132, 69, 0.42), transparent);
+  transform: translateX(-50%);
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 560px;
+  max-width: 980px;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrow {
@@ -244,10 +246,10 @@ h2 {
 }
 
 h1 {
-  max-width: 560px;
-  margin-bottom: 24px;
-  font-size: clamp(70px, 6.1vw, 86px);
-  line-height: 0.93;
+  max-width: 1080px;
+  margin-bottom: 22px;
+  font-size: clamp(64px, 7.1vw, 108px);
+  line-height: 0.9;
   font-weight: 760;
   text-wrap: balance;
 }
@@ -285,14 +287,15 @@ h3 {
 }
 
 .hero-lede {
-  max-width: 540px;
-  margin-bottom: 28px;
+  max-width: 760px;
+  margin-bottom: 30px;
   color: var(--ink-muted);
-  font-size: clamp(20px, 1.55vw, 23px);
-  line-height: 1.28;
+  font-size: clamp(20px, 1.7vw, 24px);
+  line-height: 1.34;
 }
 
 .hero-actions {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -319,9 +322,11 @@ h3 {
 }
 
 .proof-strip {
-  display: grid;
-  gap: 7px;
-  max-width: 520px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px 16px;
+  max-width: 850px;
 }
 
 .proof-strip span {
@@ -336,136 +341,106 @@ h3 {
   flex: 0 0 auto;
 }
 
-.product-console {
+.sound-hologram {
   position: relative;
-  z-index: 1;
-  width: min(100%, 548px);
-  justify-self: end;
-  padding: 12px;
-  border: 1px solid rgba(18, 54, 56, 0.16);
-  border-radius: 8px;
-  background: linear-gradient(145deg, rgba(255, 253, 248, 0.94), rgba(231, 223, 208, 0.9));
-  box-shadow: var(--shadow);
+  width: min(560px, 88vw);
+  height: clamp(118px, 14vw, 170px);
+  display: grid;
+  place-items: center;
+  margin: 0 auto clamp(16px, 3vw, 34px);
+  isolation: isolate;
 }
 
-.product-console::after {
+.sound-hologram::before {
   content: "";
   position: absolute;
-  inset: 22px -14px -14px 36px;
-  z-index: -1;
-  border: 1px solid rgba(177, 132, 69, 0.28);
-  border-radius: 8px;
-}
-
-.console-topbar,
-.console-footer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.console-topbar {
-  min-height: 40px;
-  padding: 0 8px 10px;
-  border-bottom: 1px solid var(--line);
-}
-
-.console-topbar span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--clay);
-}
-
-.console-topbar span:nth-child(2) {
-  background: var(--gold);
-}
-
-.console-topbar span:nth-child(3) {
-  background: var(--sage);
-}
-
-.console-topbar strong {
-  margin-left: auto;
-  color: var(--ink-muted);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.capture-panel {
-  margin: 14px 0;
-  padding: clamp(20px, 3vw, 28px);
-  border-radius: 8px;
-  color: var(--paper-soft);
+  inset: 22% 2% 18%;
+  z-index: -2;
+  border-radius: 999px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 38%),
-    var(--ink-strong);
+    radial-gradient(circle at 50% 50%, rgba(177, 132, 69, 0.22), transparent 58%),
+    radial-gradient(circle at 48% 52%, rgba(47, 116, 120, 0.18), transparent 64%);
+  filter: blur(20px);
 }
 
-.capture-status {
+.sound-hologram::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  width: 74%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(177, 132, 69, 0.42), transparent);
+  transform: translateX(-50%);
+}
+
+.hologram-ring {
+  position: absolute;
+  inset: 12% 8%;
+  z-index: -1;
+  border: 1px solid rgba(111, 142, 127, 0.2);
+  border-radius: 50%;
+  transform: rotate(-5deg) scaleX(1.18);
+}
+
+.hologram-ring.secondary {
+  inset: 23% 16%;
+  border-color: rgba(177, 132, 69, 0.22);
+  transform: rotate(8deg) scaleX(1.28);
+}
+
+.sound-wave {
+  height: 86%;
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
+  justify-content: center;
+  gap: clamp(5px, 0.68vw, 8px);
+  transform: perspective(680px) rotateX(18deg) rotateZ(-1deg);
+  transform-style: preserve-3d;
 }
 
-.capture-status strong,
-.capture-status small {
-  display: block;
-}
-
-.capture-status small {
-  margin-top: 4px;
-  color: rgba(255, 250, 241, 0.64);
-}
-
-.mic-button {
-  width: 52px;
-  height: 52px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--ink-strong);
-  background: var(--gold-soft);
-}
-
-.waveform {
-  height: 110px;
+.sound-column {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  align-items: end;
-  gap: 7px;
+  grid-template-rows: repeat(var(--dots), 1fr);
+  gap: clamp(3px, 0.42vw, 5px);
+  align-content: center;
+  animation: hologram-breathe 3.7s ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
-.waveform span {
-  min-height: 22px;
-  height: var(--bar);
-  border-radius: 999px 999px 3px 3px;
-  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
-  animation: pulse-bar 2.8s ease-in-out infinite;
-  animation-delay: calc(var(--bar) * -0.018);
+.sound-column i {
+  width: clamp(4px, 0.76vw, 8px);
+  aspect-ratio: 1;
+  display: block;
+  border-radius: 50%;
+  background: var(--sea);
+  box-shadow: 0 0 13px rgba(47, 116, 120, 0.44);
+  opacity: calc(0.36 + (var(--dot) / var(--dots)) * 0.48);
+  transform: translateZ(calc(var(--dot) * 0.55px));
 }
 
-@keyframes pulse-bar {
+.sound-column i[style*="--tone: 1"] {
+  background: var(--sage);
+  box-shadow: 0 0 13px rgba(111, 142, 127, 0.48);
+}
+
+.sound-column i[style*="--tone: 2"] {
+  background: var(--gold);
+  box-shadow: 0 0 14px rgba(177, 132, 69, 0.48);
+}
+
+@keyframes hologram-breathe {
   0%,
   100% {
-    transform: scaleY(0.82);
-    opacity: 0.72;
+    transform: translateY(4px) scaleY(0.86);
+    opacity: 0.7;
   }
   50% {
-    transform: scaleY(1);
+    transform: translateY(-5px) scaleY(1.08);
     opacity: 1;
   }
 }
 
-.review-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.review-grid section,
 .workflow-card,
 .price-card,
 .guardrail-list article,
@@ -475,11 +450,6 @@ h3 {
   background: rgba(255, 253, 248, 0.74);
 }
 
-.review-grid section {
-  padding: 17px;
-}
-
-.review-grid p,
 .workflow-card p,
 .guardrail-list p,
 .price-card p,
@@ -488,7 +458,6 @@ h3 {
   line-height: 1.55;
 }
 
-.section-kicker,
 .plan-profile,
 .recommended {
   display: inline-flex;
@@ -497,17 +466,6 @@ h3 {
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.console-footer {
-  justify-content: space-between;
-  padding: 14px 4px 2px;
-  color: var(--ink-muted);
-  font-size: 13px;
-}
-
-.console-footer span {
-  gap: 6px;
 }
 
 .workflow-section,
@@ -729,18 +687,12 @@ h3 {
 }
 
 @media (max-width: 1120px) {
-  .hero-section,
   .guardrails-section {
     grid-template-columns: 1fr;
   }
 
   .hero-section {
     min-height: auto;
-  }
-
-  .product-console {
-    justify-self: start;
-    max-width: 640px;
   }
 
   .hero-section::before {
@@ -793,7 +745,6 @@ h3 {
   }
 
   .hero-section {
-    grid-template-columns: 1fr;
     padding-top: 48px;
   }
 
@@ -810,30 +761,15 @@ h3 {
     font-size: 21px;
   }
 
-  .product-console {
-    padding: 10px;
-  }
-
-  .review-grid,
   .workflow-grid,
   .pricing-grid {
     grid-template-columns: 1fr;
   }
 
-  .console-footer,
   .final-cta,
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .capture-panel {
-    padding: 20px;
-  }
-
-  .waveform {
-    height: 86px;
-    gap: 5px;
   }
 
   .workflow-card,
