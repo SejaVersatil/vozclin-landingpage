@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
 import { HiMicrophone, HiArrowRight, HiCheckCircle } from 'react-icons/hi';
 
+const waveformBars = Array.from({ length: 40 }, (_, i) => [
+  20 + ((i * 17) % 40),
+  10 + ((i * 29) % 60),
+  20 + ((i * 11) % 40),
+]);
+
 export default function Hero() {
   return (
     <section
@@ -108,11 +114,11 @@ export default function Hero() {
                 </div>
 
                 <div className="flex items-end gap-0.5 h-16 mb-8">
-                  {Array.from({ length: 40 }).map((_, i) => (
+                  {waveformBars.map((heights, i) => (
                     <motion.div
                       key={i}
                       className="flex-1 rounded-full bg-gradient-to-t from-brand-500 to-accent-400"
-                      animate={{ height: [Math.random() * 40 + 20, Math.random() * 60 + 10, Math.random() * 40 + 20] }}
+                      animate={{ height: heights }}
                       transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.04, ease: 'easeInOut' }}
                     />
                   ))}

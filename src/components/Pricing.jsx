@@ -56,11 +56,6 @@ const plans = [
   },
 ];
 
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 export default function Pricing() {
   return (
     <section id="planos" className="relative py-28">
