@@ -136,6 +136,9 @@ function App() {
         <section className="hero-section" id="produto">
           <div className="hero-copy">
             <span className="eyebrow hero-eyebrow">Voz + IA clínica</span>
+            <div className="hero-visual" aria-hidden="true">
+              <RecordingSignalFlow />
+            </div>
             <h1>
               Documentação clínica <span className="voice-gradient">pelo poder da voz.</span>
             </h1>
@@ -160,9 +163,6 @@ function App() {
                 </span>
               ))}
             </div>
-          </div>
-          <div className="hero-visual" aria-hidden="true">
-            <RecordingSignalFlow />
           </div>
         </section>
 
