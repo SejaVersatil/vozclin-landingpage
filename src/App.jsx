@@ -175,7 +175,7 @@ function App() {
         <section className="workflow-section" id="fluxo">
           <div className="section-heading">
             <span className="eyebrow">Fluxo seguro</span>
-            <h2>Da fala ao documento, sem pular a revisão.</h2>
+            <h2>Da fala ao documento.</h2>
           </div>
           <div className="workflow-grid">
             {workflow.map((step) => {
