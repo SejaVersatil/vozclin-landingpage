@@ -44,7 +44,7 @@ export default function ClinicalVoicePulse() {
     <figure className="clinical-voice-pulse" aria-hidden="true">
       <svg
         className="clinical-voice-pulse-svg"
-        viewBox="0 0 680 380"
+        viewBox="0 70 680 270"
         focusable="false"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -78,13 +78,13 @@ export default function ClinicalVoicePulse() {
           </linearGradient>
         </defs>
 
-        <rect width="680" height="380" fill="transparent" />
-        <ellipse cx="340" cy="194" rx="272" ry="132" fill="url(#voicePulseGlow)" />
+        <rect y="70" width="680" height="270" fill="transparent" />
+        <ellipse cx="340" cy="194" rx="260" ry="92" fill="url(#voicePulseGlow)" />
 
         <g className="pulse-fields" fill="none" strokeLinecap="round">
-          <path d="M126 157 C212 94 462 86 562 151" stroke="url(#goldField)" strokeWidth="1.2" />
-          <path d="M104 220 C214 300 466 290 584 216" stroke="#2f7478" strokeOpacity="0.12" strokeWidth="1.2" />
-          <path d="M182 272 C292 326 472 295 548 238" stroke="#b18445" strokeOpacity="0.11" strokeWidth="1" />
+          <path d="M144 158 C226 122 382 116 506 150" stroke="url(#goldField)" strokeWidth="1.2" />
+          <path d="M188 236 C284 274 428 262 532 218" stroke="#2f7478" strokeOpacity="0.12" strokeWidth="1.2" />
+          <path d="M292 126 C364 104 462 118 536 158" stroke="#b18445" strokeOpacity="0.1" strokeWidth="1" />
         </g>
 
         <g className="pulse-particles">
@@ -111,29 +111,6 @@ export default function ClinicalVoicePulse() {
             d="M72 193 C116 174 150 176 188 194 C220 209 248 207 274 192 C292 181 302 178 312 188 L326 188 L338 166 L352 218 L366 190 C398 169 432 171 464 191 C484 202 500 201 518 190 L532 190 L542 176 L554 206 L568 191 C592 178 616 180 636 191"
             stroke="url(#signalStroke)"
             strokeWidth="2.15"
-          />
-        </g>
-
-        <g className="pulse-core">
-          <rect x="314" y="166" width="54" height="50" rx="11" fill="#fffdf8" fillOpacity="0.86" />
-          <rect x="314" y="166" width="54" height="50" rx="11" fill="none" stroke="#b18445" strokeOpacity="0.26" />
-          <path
-            d="M326 184 H353"
-            fill="none"
-            stroke="#08282b"
-            strokeOpacity="0.5"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-          />
-          <path d="M326 195 H348" stroke="#6f8e7f" strokeOpacity="0.5" strokeWidth="1.4" strokeLinecap="round" />
-          <path
-            d="M328 205 L334 210 L350 193"
-            fill="none"
-            stroke="#2f7478"
-            strokeOpacity="0.62"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </g>
       </svg>

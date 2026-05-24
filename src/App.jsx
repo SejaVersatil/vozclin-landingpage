@@ -134,8 +134,11 @@ function App() {
 
       <main>
         <section className="hero-section" id="produto">
+          <span className="eyebrow hero-eyebrow">Voz + IA clínica</span>
+          <div className="hero-visual" aria-hidden="true">
+            <ClinicalVoicePulse />
+          </div>
           <div className="hero-copy">
-            <span className="eyebrow">Voz + IA clínica</span>
             <h1>
               Documentação clínica <span className="voice-gradient">por voz,</span> com IA e revisão humana.
             </h1>
@@ -160,9 +163,6 @@ function App() {
                 </span>
               ))}
             </div>
-          </div>
-          <div className="hero-visual" aria-hidden="true">
-            <ClinicalVoicePulse />
           </div>
         </section>
 
