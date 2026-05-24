@@ -70,15 +70,27 @@ export default function RecordingSignalFlow() {
 
         <g mask="url(#recordingSignalMask)" strokeLinecap="round" strokeLinejoin="round">
           <g className="recording-signal-stream">
+            {!reducedMotion && (
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                from="0 0"
+                to="-360 0"
+                dur="5.6s"
+                repeatCount="indefinite"
+              />
+            )}
             <g className="recording-signal-glow" stroke="rgba(47, 116, 120, 0.13)">
               <use href="#heartbeatFlowSegment" />
               <use href="#heartbeatFlowSegment" x="360" />
               <use href="#heartbeatFlowSegment" x="720" />
+              <use href="#heartbeatFlowSegment" x="1080" />
             </g>
             <g className="recording-signal-main" stroke="url(#recordingSignalStroke)">
               <use href="#heartbeatFlowSegment" />
               <use href="#heartbeatFlowSegment" x="360" />
               <use href="#heartbeatFlowSegment" x="720" />
+              <use href="#heartbeatFlowSegment" x="1080" />
             </g>
           </g>
         </g>
