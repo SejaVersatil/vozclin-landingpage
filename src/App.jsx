@@ -9,6 +9,7 @@ import {
   HiMicrophone,
   HiX,
 } from 'react-icons/hi';
+import HeroDynamicWord from './components/HeroDynamicWord.jsx';
 import RecordingSignalFlow from './components/RecordingSignalFlow.jsx';
 
 const navItems = [
@@ -139,8 +140,13 @@ function App() {
             <div className="hero-visual" aria-hidden="true">
               <RecordingSignalFlow />
             </div>
-            <h1>
-              Documentação clínica <span className="voice-gradient">pelo poder da voz.</span>
+            <h1 aria-label="Documentação clínica pelo poder da voz. Documentação clínica pelo comando da voz.">
+              <span aria-hidden="true">
+                Documentação clínica{' '}
+                <span className="voice-gradient">
+                  pelo <HeroDynamicWord /> da voz.
+                </span>
+              </span>
             </h1>
             <p className="hero-lede">
               O VozClin transforma ditados e conversas clínicas em fichas estruturadas, revisáveis e prontas

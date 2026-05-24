@@ -267,6 +267,67 @@ h1 .voice-gradient {
   text-shadow: 0 14px 34px rgba(8, 40, 43, 0.06);
 }
 
+.hero-dynamic-word {
+  position: relative;
+  display: inline-grid;
+  grid-template-areas: "word";
+  min-width: 3.58em;
+  padding-inline-end: 0.12em;
+  margin-inline: 0.02em 0.01em;
+  line-height: inherit;
+  vertical-align: baseline;
+  isolation: isolate;
+}
+
+.hero-dynamic-word::before {
+  content: "";
+  position: absolute;
+  left: 0.02em;
+  right: 0.2em;
+  bottom: 0.08em;
+  z-index: -1;
+  height: 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(177, 132, 69, 0.08), rgba(111, 142, 127, 0.2));
+  transform-origin: left center;
+}
+
+.hero-dynamic-word__measure,
+.hero-dynamic-word__visible {
+  grid-area: word;
+  line-height: inherit;
+}
+
+.hero-dynamic-word__measure {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero-dynamic-word__visible {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  background: var(--voice-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: voice-word-materialize 120ms ease-out both;
+}
+
+.hero-dynamic-word__visible::after {
+  content: "";
+  position: absolute;
+  top: 0.14em;
+  left: 100%;
+  display: block;
+  width: 0.045em;
+  height: 0.72em;
+  margin-left: 0.055em;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(8, 40, 43, 0.58), rgba(111, 142, 127, 0.62));
+  box-shadow: 0 0 18px rgba(47, 116, 120, 0.22);
+  animation: voice-word-caret 920ms steps(2, end) infinite;
+}
+
 .inline-gradient {
   display: inline-block;
   color: transparent;
@@ -497,6 +558,32 @@ h3 {
     opacity: 1;
     transform: scale(1);
     box-shadow: 0 0 0 7px rgba(111, 142, 127, 0);
+  }
+}
+
+@keyframes voice-word-materialize {
+  from {
+    opacity: 0.86;
+    filter: blur(0.6px);
+    transform: translateY(0.012em);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes voice-word-caret {
+  0%,
+  48% {
+    opacity: 0.86;
+  }
+
+  49%,
+  100% {
+    opacity: 0.22;
   }
 }
 
@@ -905,5 +992,14 @@ h3 {
 
   .recording-signal-lift {
     transform: translate3d(0, 0, 0);
+  }
+
+  .hero-dynamic-word__visible,
+  .hero-dynamic-word__visible::after {
+    animation: none !important;
+  }
+
+  .hero-dynamic-word__visible::after {
+    display: none;
   }
 }
