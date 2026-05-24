@@ -186,15 +186,14 @@ summary {
 .hero-section {
   position: relative;
   width: min(1180px, calc(100% - 32px));
-  min-height: min(780px, calc(100vh - 126px));
+  min-height: min(760px, calc(100vh - 126px));
   margin: 0 auto;
-  padding: clamp(24px, 4vw, 48px) 0 clamp(46px, 7vw, 70px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: clamp(8px, 1.5vw, 16px);
+  padding: clamp(32px, 5vw, 58px) 0 clamp(46px, 7vw, 70px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(420px, 0.86fr);
+  gap: clamp(44px, 6vw, 86px);
   align-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 .hero-section::before {
@@ -204,12 +203,11 @@ summary {
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 960px;
+  max-width: 720px;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-inline: auto;
+  align-items: flex-start;
 }
 
 .eyebrow {
@@ -247,9 +245,9 @@ h2 {
 }
 
 h1 {
-  max-width: 960px;
+  max-width: 720px;
   margin-bottom: 0;
-  font-size: clamp(54px, 7vw, 100px);
+  font-size: clamp(56px, 6.5vw, 92px);
   line-height: 0.92;
   font-weight: 760;
   text-wrap: balance;
@@ -298,7 +296,7 @@ h3 {
 }
 
 .hero-actions {
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -327,9 +325,9 @@ h3 {
 .proof-strip {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 9px 16px;
-  max-width: 760px;
+  max-width: 640px;
 }
 
 .proof-strip span {
@@ -348,8 +346,8 @@ h3 {
   position: relative;
   z-index: 1;
   min-width: 0;
-  width: min(100%, 720px);
-  min-height: clamp(140px, 16vw, 200px);
+  width: 100%;
+  min-height: clamp(220px, 28vw, 320px);
   display: grid;
   place-items: center;
   isolation: isolate;
@@ -358,23 +356,51 @@ h3 {
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 18% 4% 10%;
+  inset: 15% 2% 12%;
   z-index: -1;
   border-radius: 999px;
-  background:
-    radial-gradient(circle at 50% 52%, rgba(111, 142, 127, 0.12), transparent 56%),
-    radial-gradient(circle at 50% 50%, rgba(234, 216, 183, 0.14), transparent 70%);
-  filter: blur(14px);
+  background: radial-gradient(circle at 56% 50%, rgba(47, 116, 120, 0.12), transparent 62%);
+  filter: blur(18px);
 }
 
-.clinical-voice-pulse {
+.recording-signal-flow {
   position: relative;
-  width: min(100%, 700px);
-  height: clamp(140px, 16vw, 200px);
+  width: min(100%, 660px);
+  height: clamp(220px, 28vw, 320px);
   pointer-events: none;
 }
 
-.clinical-voice-pulse-svg {
+.recording-status-pill {
+  position: absolute;
+  top: clamp(30px, 5vw, 50px);
+  left: clamp(22px, 5vw, 60px);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 12px;
+  color: var(--ink-strong);
+  background: rgba(255, 253, 248, 0.72);
+  border: 1px solid rgba(47, 116, 120, 0.2);
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(18, 54, 56, 0.08);
+  backdrop-filter: blur(12px);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+}
+
+.recording-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--sage);
+  box-shadow: 0 0 0 0 rgba(111, 142, 127, 0.24);
+  animation: recording-dot-pulse 2.2s ease-in-out infinite;
+}
+
+.recording-signal-svg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -382,115 +408,52 @@ h3 {
   overflow: visible;
 }
 
-.pulse-fields {
+.recording-signal-panel-line {
+  fill: rgba(47, 116, 120, 0.16);
+}
+
+.recording-signal-stream {
+  animation: recording-signal-slide 6.8s linear infinite;
+  transform-box: fill-box;
+}
+
+.recording-signal-glow use,
+.recording-signal-main use {
+  fill: none;
   vector-effect: non-scaling-stroke;
 }
 
-.signal-main,
-.signal-echo {
-  vector-effect: non-scaling-stroke;
+.recording-signal-glow use {
+  stroke-width: 9;
+  filter: blur(3px);
 }
 
-.signal-main {
-  animation: clinical-signal-breathe 4.8s ease-in-out infinite;
+.recording-signal-main use {
+  stroke-width: 2.25;
 }
 
-.signal-echo.upper {
-  animation: clinical-echo-upper 7.2s ease-in-out infinite;
+@keyframes recording-signal-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-360px, 0, 0);
+  }
 }
 
-.signal-echo.lower {
-  animation: clinical-echo-lower 8.4s ease-in-out infinite;
-}
-
-.pulse-fields {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: clinical-field-drift 10s ease-in-out infinite;
-}
-
-.pulse-particles circle {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: clinical-particle-breathe 6.4s ease-in-out infinite;
-}
-
-.pulse-particles circle:nth-child(3n) {
-  animation-delay: -1.6s;
-}
-
-.pulse-particles circle:nth-child(4n) {
-  animation-delay: -3.2s;
-}
-
-.pulse-particles circle:nth-child(5n) {
-  animation-delay: -4.7s;
-}
-
-.hero-visual:hover .signal-main {
-  stroke-width: 2.45;
-}
-
-@keyframes clinical-signal-breathe {
+@keyframes recording-dot-pulse {
   0%,
   100% {
-    opacity: 0.84;
-    stroke-width: 2.05;
+    opacity: 0.68;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(111, 142, 127, 0.24);
   }
 
   50% {
     opacity: 1;
-    stroke-width: 2.42;
-  }
-}
-
-@keyframes clinical-echo-upper {
-  0%,
-  100% {
-    opacity: 0.72;
-    transform: translateY(0);
-  }
-
-  50% {
-    opacity: 0.9;
-    transform: translateY(-3px);
-  }
-}
-
-@keyframes clinical-echo-lower {
-  0%,
-  100% {
-    opacity: 0.68;
-    transform: translateY(0);
-  }
-
-  50% {
-    opacity: 0.86;
-    transform: translateY(3px);
-  }
-}
-
-@keyframes clinical-field-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate3d(0, -2px, 0) scale(1.012);
-  }
-}
-
-@keyframes clinical-particle-breathe {
-  0%,
-  100% {
-    opacity: 0.28;
-    transform: scale(0.9);
-  }
-
-  50% {
-    opacity: 0.52;
-    transform: scale(1.18);
+    transform: scale(1);
+    box-shadow: 0 0 0 7px rgba(111, 142, 127, 0);
   }
 }
 
@@ -746,7 +709,8 @@ h3 {
 
   .hero-section {
     min-height: auto;
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 5vw, 44px);
     text-align: center;
   }
 
@@ -762,12 +726,14 @@ h3 {
   }
 
   .hero-visual {
-    min-height: clamp(150px, 24vw, 220px);
+    width: min(100%, 560px);
+    min-height: clamp(200px, 34vw, 260px);
+    margin-inline: auto;
   }
 
-  .clinical-voice-pulse {
-    width: min(100%, 640px);
-    height: clamp(150px, 24vw, 220px);
+  .recording-signal-flow {
+    width: min(100%, 560px);
+    height: clamp(200px, 34vw, 260px);
   }
 
   .workflow-grid,
@@ -817,7 +783,7 @@ h3 {
 
   .hero-section {
     padding-top: 38px;
-    gap: 16px;
+    gap: 22px;
   }
 
   h1 {
@@ -834,12 +800,24 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 132px;
+    width: 100%;
+    min-height: 178px;
   }
 
-  .clinical-voice-pulse {
-    width: min(100%, 360px);
-    height: 132px;
+  .recording-signal-flow {
+    width: min(100%, 340px);
+    height: 178px;
+  }
+
+  .recording-status-pill {
+    top: 18px;
+    left: 16px;
+    min-height: 30px;
+    font-size: 12px;
+  }
+
+  .recording-signal-main use {
+    stroke-width: 1.85;
   }
 
   .workflow-grid,
@@ -870,9 +848,12 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 
-  .clinical-voice-pulse-svg *,
-  .clinical-voice-pulse-svg *::before,
-  .clinical-voice-pulse-svg *::after {
+  .recording-signal-stream,
+  .recording-status-dot {
     animation: none !important;
+  }
+
+  .recording-signal-stream {
+    transform: translate3d(-160px, 0, 0);
   }
 }

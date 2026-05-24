@@ -9,7 +9,7 @@ import {
   HiMicrophone,
   HiX,
 } from 'react-icons/hi';
-import ClinicalVoicePulse from './components/ClinicalVoicePulse.jsx';
+import RecordingSignalFlow from './components/RecordingSignalFlow.jsx';
 
 const navItems = [
   { label: 'Produto', href: '#produto' },
@@ -134,11 +134,8 @@ function App() {
 
       <main>
         <section className="hero-section" id="produto">
-          <span className="eyebrow hero-eyebrow">Voz + IA clínica</span>
-          <div className="hero-visual" aria-hidden="true">
-            <ClinicalVoicePulse />
-          </div>
           <div className="hero-copy">
+            <span className="eyebrow hero-eyebrow">Voz + IA clínica</span>
             <h1>
               Documentação clínica <span className="voice-gradient">pelo poder da voz.</span>
             </h1>
@@ -163,6 +160,9 @@ function App() {
                 </span>
               ))}
             </div>
+          </div>
+          <div className="hero-visual" aria-hidden="true">
+            <RecordingSignalFlow />
           </div>
         </section>
 
