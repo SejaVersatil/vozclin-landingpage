@@ -140,7 +140,7 @@ function App() {
           </div>
           <div className="hero-copy">
             <h1>
-              Documentação clínica <span className="voice-gradient">por voz,</span> com IA e revisão humana.
+              Documentação clínica <span className="voice-gradient">pelo poder da voz.</span>
             </h1>
             <p className="hero-lede">
               O VozClin transforma ditados e conversas clínicas em fichas estruturadas, revisáveis e prontas

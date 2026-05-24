@@ -256,7 +256,7 @@ h1 {
 }
 
 h1 .voice-gradient {
-  display: inline-block;
+  display: inline;
   color: transparent;
   background: var(--voice-gradient);
   background-clip: text;
