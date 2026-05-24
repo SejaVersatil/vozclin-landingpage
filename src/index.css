@@ -488,14 +488,7 @@ h3 {
 }
 
 .recording-signal-stream {
-  animation: recording-signal-slide 6.8s linear infinite;
   transform-box: fill-box;
-}
-
-.recording-signal-lift {
-  animation: recording-signal-lift 2.8s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
 }
 
 .recording-signal-glow use,
@@ -511,39 +504,6 @@ h3 {
 
 .recording-signal-main use {
   stroke-width: 2.25;
-}
-
-@keyframes recording-signal-slide {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-360px, 0, 0);
-  }
-}
-
-@keyframes recording-signal-lift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  18% {
-    transform: translate3d(0, -4px, 0);
-  }
-
-  38% {
-    transform: translate3d(0, 5px, 0);
-  }
-
-  58% {
-    transform: translate3d(0, -3px, 0);
-  }
-
-  78% {
-    transform: translate3d(0, 2px, 0);
-  }
 }
 
 @keyframes recording-dot-pulse {
@@ -980,18 +940,8 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 
-  .recording-signal-stream,
-  .recording-signal-lift,
   .recording-status-dot {
     animation: none !important;
-  }
-
-  .recording-signal-stream {
-    transform: translate3d(-160px, 0, 0);
-  }
-
-  .recording-signal-lift {
-    transform: translate3d(0, 0, 0);
   }
 
   .hero-dynamic-word__visible,
